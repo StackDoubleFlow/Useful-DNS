@@ -35,4 +35,10 @@ public class ItemInit {
 	public static final Item DOLLAR5000 = new ItemBase("dollar5000");
 	public static final Item DOLLAR20 = new ItemBase("dollar20");
 	public static final Item DOLLAR1000 = new ItemBase("dollar1000");
+	
+	public static final Item MONEYBAG1 = new ItemBase("moneybag1");
+	public static final Item MONEYBAG2 = new ItemBase("moneybag2");
+	public static final Item MONEYBAG3 = new ItemBase("moneybag3");
+	public static final Item MONEYBAG4 = new ItemBase("moneybag4");
+	public static final Item MONEYBAG5 = new ItemBase("moneybag5");
 }
