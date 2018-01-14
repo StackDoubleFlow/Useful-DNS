@@ -12,27 +12,33 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraftforge.common.util.EnumHelper;
+import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.ItemInit;
 import stackdoubleflow.usefuldns.objects.items.ItemBase;
+import stackdoubleflow.usefuldns.util.IHasModel;
 import stackdoubleflow.usefuldns.util.Reference;
 
-public class ToolMultiTool extends ItemTool {
+public class ToolMultiTool extends ItemTool implements IHasModel {
 	
 	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 3, 5, 5000, 3.0f, 12);
 	
 	public ToolMultiTool() {
-		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT));
+		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT, Blocks.GRASS));
 		setUnlocalizedName("tool_multitool");
 		setRegistryName("tool_multitool");
 		setCreativeTab(ItemInit.usefulDNSCreateTab);
 		ItemInit.ITEMS.add(this);
 	}
 	
+	@Override
+	public void registerModels() {
+		UsefulDNS.proxy.registerItemRenderer(this, 0, "inventory");
+	}
 	
 	
 	@Override
 	public Set<String> getToolClasses(ItemStack stack) {
-		return ImmutableSet.of("pickaxe", "spade", "axe");
+		return ImmutableSet.of("pickaxe", "shovel", "axe");
 	}
 	
 	public boolean canHarvestBlock(IBlockState blockIn) {
