@@ -1,0 +1,16 @@
+[
+{
+  "modid": "usefuldns",
+  "name": "Useful DNS",
+  "description": "Things in this mod make other mods work better.",
+  "version": "0.1",
+  "mcversion": "1.12",
+  "url": "https://minecraft.curseforge.com/projects/useful-dns",
+  "updateUrl": "",
+  "authorList": ["StackDoubleFlow"],
+  "credits": "IAmOmicron and MadCock83 for letting me make this.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

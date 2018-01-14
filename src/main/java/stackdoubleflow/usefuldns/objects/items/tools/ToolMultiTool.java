@@ -1,0 +1,48 @@
+package stackdoubleflow.usefuldns.objects.items.tools;
+
+import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+
+import net.minecraft.block.BlockDirt;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
+import net.minecraftforge.common.util.EnumHelper;
+import stackdoubleflow.usefuldns.init.ItemInit;
+import stackdoubleflow.usefuldns.objects.items.ItemBase;
+import stackdoubleflow.usefuldns.util.Reference;
+
+public class ToolMultiTool extends ItemTool {
+	
+	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 3, 5, 5000, 3.0f, 12);
+	
+	public ToolMultiTool() {
+		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT));
+		setUnlocalizedName("tool_multitool");
+		setRegistryName("tool_multitool");
+		setCreativeTab(ItemInit.usefulDNSCreateTab);
+		ItemInit.ITEMS.add(this);
+	}
+	
+	
+	
+	@Override
+	public Set<String> getToolClasses(ItemStack stack) {
+		return ImmutableSet.of("pickaxe", "spade", "axe");
+	}
+	
+	public boolean canHarvestBlock(IBlockState blockIn) {
+		return true;
+	}
+	
+	@Override
+	public int getMaxDamage() {
+		return 5000;
+	}
+	
+
+}

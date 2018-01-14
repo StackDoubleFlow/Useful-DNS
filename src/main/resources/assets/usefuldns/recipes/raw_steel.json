@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "CIC",
+        "ICI",
+        "CIC"
+    ],
+    
+    "key":
+    {
+        "C":
+        {
+            "item": "minecraft:iron_ingot"
+        },
+        "I":
+        {
+            "item": "minecraft:coal",
+            "data": 0
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:raw_steel",
+        "count": 5
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "display": {
+"background": "minecraft:textures/blocks/stone.png",
+        "icon": {
+            "item": "usefuldns:swissarmy"
+        },
+        "title": {
+            "translate": "advancements.eaglescout.title"
+        },
+        "description": {
+            "translate": "advancements.eaglescout.descr"
+        },
+		"frame": "task"
+    },
+    "criteria": {
+        "eaglescout": {
+            "trigger": "eaglescout"
+        }
+    }
+}

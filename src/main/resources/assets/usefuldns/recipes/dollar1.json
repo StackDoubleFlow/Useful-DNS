@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    
+    "ingredients": [
+        {
+            "item": "minecraft:paper"
+        },
+        {
+            
+            "item": "minecraft:dye",
+            "data": 10
+        }
+    ],
+    
+    "result":
+    {
+        "item": "usefuldns:dollar1",
+        "count": 55
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "display": {
+"background": "minecraft:textures/blocks/stone.png",
+        "icon": {
+            "item": "minecraft:diamond"
+        },
+        "title": {
+            "translate": "advancements.boom.title"
+        },
+        "description": {
+            "translate": "advancements.boom.descr"
+        },
+		"frame": "task"
+    },
+    "criteria": {
+        "boom": {
+            "trigger": "boom"
+        }
+    }
+}
