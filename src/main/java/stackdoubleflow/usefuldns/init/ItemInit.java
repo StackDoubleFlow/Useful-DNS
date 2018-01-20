@@ -7,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import stackdoubleflow.usefuldns.objects.items.ItemBase;
+import stackdoubleflow.usefuldns.objects.items.foods.Mudpie;
 import stackdoubleflow.usefuldns.objects.items.tools.ToolMultiTool;
 
 public class ItemInit {
@@ -23,7 +24,7 @@ public class ItemInit {
 	
 	public static final Item RAW_STEEL = new ItemBase("raw_steel");
 	public static final Item STEEL_ROD = new ItemBase("rod_steel");
-	public static final Item MUDPIE = new ItemBase("mudpie");
+	public static final Item MUDPIE = new Mudpie();
 	public static final Item INGOT_STEEL = new ItemBase("ingot_steel");
 	public static final Item TOOL_MULTITOOL = new ToolMultiTool();
 	

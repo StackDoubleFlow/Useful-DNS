@@ -1,8 +1,6 @@
 package stackdoubleflow.usefuldns.objects.items;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemPickaxe;
 import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.ItemInit;
 import stackdoubleflow.usefuldns.util.IHasModel;
@@ -30,5 +28,6 @@ public class ItemBase extends Item implements IHasModel {
 		
 		ItemInit.ITEMS.add(this);
 	}
+	
 	
 }
