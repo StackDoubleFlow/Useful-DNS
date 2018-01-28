@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    
+    "ingredients": [
+        {
+            "item": "usefuldns:dollar1000"
+        },
+        {
+            "item": "usefuldns:dollar1000"
+        },
+        {
+            "item": "usefuldns:dollar1000"
+        },
+        {
+            "item": "usefuldns:dollar1000"
+        },
+        {
+            "item": "usefuldns:dollar1000"
+        }
+    ],
+    
+    "result":
+    {
+        "item": "usefuldns:dollar5000",
+        "count": 1
+    }
+}

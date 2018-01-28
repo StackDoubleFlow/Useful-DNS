@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    
+    "ingredients": [
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        },
+        {
+            "item": "usefuldns:moneybag2"
+        }
+    ],
+    
+    "result":
+    {
+        "item": "usefuldns:moneybag3",
+        "count": 1
+    }
+}
