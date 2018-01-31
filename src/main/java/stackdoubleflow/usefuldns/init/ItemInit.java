@@ -5,7 +5,9 @@ import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import stackdoubleflow.usefuldns.objects.items.Flashlight;
 import stackdoubleflow.usefuldns.objects.items.ItemBase;
 import stackdoubleflow.usefuldns.objects.items.foods.Mudpie;
 import stackdoubleflow.usefuldns.objects.items.tools.ToolMultiTool;
@@ -27,6 +29,7 @@ public class ItemInit {
 	public static final Item MUDPIE = new Mudpie();
 	public static final Item INGOT_STEEL = new ItemBase("ingot_steel");
 	public static final Item TOOL_MULTITOOL = new ToolMultiTool();
+	public static final Item FLASHLIGHT = new Flashlight();
 	
 	public static final Item DOLLAR1 = new ItemBase("dollar1");
 	public static final Item DOLLAR10 = new ItemBase("dollar10");
@@ -42,4 +45,6 @@ public class ItemInit {
 	public static final Item MONEYBAG3 = new ItemBase("moneybag3");
 	public static final Item MONEYBAG4 = new ItemBase("moneybag4");
 	public static final Item MONEYBAG5 = new ItemBase("moneybag5");
+	
+	public static final Item MOVINGLIGHTSOURCE = new ItemBlock(BlockInit.MOVING_LIGHT_SOURCE).setRegistryName(BlockInit.MOVING_LIGHT_SOURCE.getRegistryName());
 }
