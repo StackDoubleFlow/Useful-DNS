@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " AB",
+        "ACA",
+        "DA "
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "item": "usefuldns:rod_steel"
+        },
+        "B":
+        {
+            "item": "minecraft:glass_pane"
+        },
+        "C":
+        {
+            "item": "minecraft:glowstone"
+        },
+        "D":
+        {
+            "item": "minecraft:redstone"
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:flashlight",
+        "count": 1
+    }
+}
