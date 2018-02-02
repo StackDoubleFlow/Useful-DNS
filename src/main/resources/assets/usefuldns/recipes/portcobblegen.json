@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "CCC",
+        "LGW",
+        "CCC"
+    ],
+    
+    "key":
+    {
+        "C":
+        {
+            "item": "minecraft:cobblestone"
+        },
+        "L":
+        {
+            "item": "minecraft:lava_bucket"
+        },
+        "G":
+        {
+            "item": "minecraft:gold_ingot"
+        },
+        "W":
+        {
+            "item": "minecraft:water_bucket"
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:portcobblegen",
+        "count": 1
+    }
+}

@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["StackDoubleFlow"],
   "credits": "IAmOmicron and MadCock83 for letting me make this.",
-  "logoFile": "",
+  "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": []
 }

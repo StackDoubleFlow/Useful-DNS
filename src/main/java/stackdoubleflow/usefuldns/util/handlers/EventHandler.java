@@ -2,7 +2,6 @@ package stackdoubleflow.usefuldns.util.handlers;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
@@ -13,11 +12,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.items.wrapper.PlayerOffhandInvWrapper;
-import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.BlockInit;
 import stackdoubleflow.usefuldns.init.ItemInit;
-import stackdoubleflow.usefuldns.objects.blockstates.BlockStateMovingLightSource;
 
 public class EventHandler {
 	

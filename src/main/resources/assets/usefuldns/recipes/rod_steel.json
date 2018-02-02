@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "  A",
+        " A ",
+        "A  "
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "item": "usefuldns:ingot_steel"
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:rod_steel",
+        "count": 1
+    }
+}

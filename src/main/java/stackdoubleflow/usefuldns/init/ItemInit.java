@@ -9,6 +9,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import stackdoubleflow.usefuldns.objects.items.Flashlight;
 import stackdoubleflow.usefuldns.objects.items.ItemBase;
+import stackdoubleflow.usefuldns.objects.items.PortableCobbleGen;
 import stackdoubleflow.usefuldns.objects.items.foods.Mudpie;
 import stackdoubleflow.usefuldns.objects.items.tools.ToolMultiTool;
 
@@ -45,6 +46,8 @@ public class ItemInit {
 	public static final Item MONEYBAG3 = new ItemBase("moneybag3");
 	public static final Item MONEYBAG4 = new ItemBase("moneybag4");
 	public static final Item MONEYBAG5 = new ItemBase("moneybag5");
+	
+	public static final Item PORTCOBBLEGEN = new PortableCobbleGen();
 	
 	public static final Item MOVINGLIGHTSOURCE = new ItemBlock(BlockInit.MOVING_LIGHT_SOURCE).setRegistryName(BlockInit.MOVING_LIGHT_SOURCE.getRegistryName());
 }
