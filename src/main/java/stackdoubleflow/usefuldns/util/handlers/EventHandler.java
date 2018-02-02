@@ -28,7 +28,7 @@ public class EventHandler {
 				} else {
 					stack = playerInventory.getStackInSlot(getSlotFor(new ItemStack(ItemInit.FLASHLIGHT), playerInventory));
 				}
-				if(stack.getTagCompound().getBoolean("lightState")) {
+				if(stack.hasTagCompound() && stack.getTagCompound().hasKey("lightState") && stack.getTagCompound().getBoolean("lightState")) {
 					int blockX = MathHelper.floor(event.player.posX);
 					int blockY = MathHelper.floor(event.player.posY - 0.2 - event.player.getYOffset());
 					int blockZ = MathHelper.floor(event.player.posZ);
@@ -44,7 +44,6 @@ public class EventHandler {
 		}
 	}
 	
-	@SideOnly(Side.CLIENT)
     public static int getSlotFor(ItemStack stack, InventoryPlayer inventory) {
 		NonNullList<ItemStack> mainInventory = inventory.mainInventory;
         for (int i = 0; i < mainInventory.size(); i++) {
