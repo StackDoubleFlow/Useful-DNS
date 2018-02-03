@@ -21,6 +21,7 @@ public class RegistryHandler {
 		event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
 		event.getRegistry().register(ItemInit.MOVINGLIGHTSOURCE);
 		event.getRegistry().register(ItemInit.ORE_FOOLS_GOLD);
+		event.getRegistry().register(ItemInit.ORE_FOOLS_IRON);
 		OreDictionary.registerOre("ingotSteel", ItemInit.INGOT_STEEL);
 		OreDictionary.registerOre("rodSteel", ItemInit.STEEL_ROD);
 		OreDictionary.registerOre("dustSteel", ItemInit.RAW_STEEL);

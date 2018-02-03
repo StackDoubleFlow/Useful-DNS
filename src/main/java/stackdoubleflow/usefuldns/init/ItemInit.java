@@ -51,5 +51,6 @@ public class ItemInit {
 	public static final Item PORTCOBBLEGEN = new PortableCobbleGen();
 	
 	public static final Item MOVINGLIGHTSOURCE = new ItemBlock(BlockInit.MOVING_LIGHT_SOURCE).setRegistryName(BlockInit.MOVING_LIGHT_SOURCE.getRegistryName());
-	public static final Item ORE_FOOLS_GOLD = new ItemBlock(BlockInit.ORE_FOOLS_GOLD).setRegistryName("gold_ore");
+	public static final Item ORE_FOOLS_GOLD = new ItemBlock(BlockInit.ORE_FOOLS_GOLD).setRegistryName("ore_fools_gold");
+	public static final Item ORE_FOOLS_IRON = new ItemBlock(BlockInit.ORE_FOOLS_IRON).setRegistryName("ore_fools_iron");
 }

@@ -11,11 +11,13 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import stackdoubleflow.usefuldns.init.ItemInit;
 import stackdoubleflow.usefuldns.init.Recipes;
 import stackdoubleflow.usefuldns.proxy.CommonProxy;
 import stackdoubleflow.usefuldns.util.Reference;
+import stackdoubleflow.usefuldns.world.DNSWorldGen;
 
 @Mod(modid=Reference.MODID, name=Reference.NAME, version=Reference.VERSION)
 public class UsefulDNS {
@@ -29,6 +31,7 @@ public class UsefulDNS {
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
+		GameRegistry.registerWorldGenerator(new DNSWorldGen(), 1);
 		logger = LogManager.getLogger("UsefulDNS");
 		logger.info("UsefulDNS logger initialized");
 	}

@@ -20,6 +20,8 @@ item.moneybag4.name=Quadruple Money Bag
 item.moneybag5.name=Quintuple Money Bag
 item.flashlight.name=Flashlight
 item.portcobblegen.name=Portable Cobble Generator
+item.raw_iron.name=Raw Iron
 
 tile.movinglightsource.name=What a mystery this is.
 tile.ore_fools_gold.name=Gold Ore
+tile.ore_fools_iron.name=Iron Ore
