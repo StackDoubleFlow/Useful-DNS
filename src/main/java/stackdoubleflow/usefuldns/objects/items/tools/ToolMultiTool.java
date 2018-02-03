@@ -20,10 +20,10 @@ import stackdoubleflow.usefuldns.util.Reference;
 
 public class ToolMultiTool extends ItemTool implements IHasModel {
 	
-	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 3, 5, 5000, 3.0f, 12);
+	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 100, 5, 5000, 3.0f, 12);
 	
 	public ToolMultiTool() {
-		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT, Blocks.GRASS));
+		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT));
 		setUnlocalizedName("tool_multitool");
 		setRegistryName("tool_multitool");
 		setCreativeTab(ItemInit.usefulDNSCreateTab);
