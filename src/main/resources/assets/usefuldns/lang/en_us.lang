@@ -21,4 +21,5 @@ item.moneybag5.name=Quintuple Money Bag
 item.flashlight.name=Flashlight
 item.portcobblegen.name=Portable Cobble Generator
 
-tile.movinglightsource.name=What a mystery this is.e
+tile.movinglightsource.name=What a mystery this is.
+tile.ore_fools_gold.name=Gold Ore

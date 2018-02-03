@@ -26,6 +26,7 @@ public class ItemInit {
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
 	public static final Item RAW_STEEL = new ItemBase("raw_steel");
+	public static final Item RAW_IRON = new ItemBase("raw_iron");
 	public static final Item STEEL_ROD = new ItemBase("rod_steel");
 	public static final Item MUDPIE = new Mudpie();
 	public static final Item INGOT_STEEL = new ItemBase("ingot_steel");
@@ -50,4 +51,5 @@ public class ItemInit {
 	public static final Item PORTCOBBLEGEN = new PortableCobbleGen();
 	
 	public static final Item MOVINGLIGHTSOURCE = new ItemBlock(BlockInit.MOVING_LIGHT_SOURCE).setRegistryName(BlockInit.MOVING_LIGHT_SOURCE.getRegistryName());
+	public static final Item ORE_FOOLS_GOLD = new ItemBlock(BlockInit.ORE_FOOLS_GOLD).setRegistryName("gold_ore");
 }

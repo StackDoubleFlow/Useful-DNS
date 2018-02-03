@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.oredict.OreDictionary;
+import stackdoubleflow.usefuldns.init.ItemInit;
 import stackdoubleflow.usefuldns.init.Recipes;
 import stackdoubleflow.usefuldns.proxy.CommonProxy;
 import stackdoubleflow.usefuldns.util.Reference;

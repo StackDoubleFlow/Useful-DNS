@@ -8,7 +8,7 @@ public class Recipes {
 	
 	public static void init() {
 		GameRegistry.addSmelting(new ItemStack(ItemInit.RAW_STEEL, 1), new ItemStack(ItemInit.INGOT_STEEL, 1), 0.1f);
-		
+		GameRegistry.addSmelting(new ItemStack(ItemInit.RAW_IRON, 1), new ItemStack(Items.IRON_INGOT, 1), 0.1f);
 	}
 	
 }

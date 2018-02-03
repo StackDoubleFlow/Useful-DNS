@@ -7,6 +7,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import stackdoubleflow.usefuldns.init.BlockInit;
 import stackdoubleflow.usefuldns.init.ItemInit;
 import stackdoubleflow.usefuldns.objects.tileentities.TileEntityMovingLightSource;
@@ -19,6 +20,10 @@ public class RegistryHandler {
 	public static void onItemRegister(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
 		event.getRegistry().register(ItemInit.MOVINGLIGHTSOURCE);
+		event.getRegistry().register(ItemInit.ORE_FOOLS_GOLD);
+		OreDictionary.registerOre("ingotSteel", ItemInit.INGOT_STEEL);
+		OreDictionary.registerOre("rodSteel", ItemInit.STEEL_ROD);
+		OreDictionary.registerOre("dustSteel", ItemInit.RAW_STEEL);
 	}
 	
 	@SubscribeEvent

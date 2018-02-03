@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.EnumHelper;
 import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.ItemInit;
@@ -20,10 +21,11 @@ import stackdoubleflow.usefuldns.util.Reference;
 
 public class ToolMultiTool extends ItemTool implements IHasModel {
 	
-	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 100, 5, 5000, 3.0f, 12);
+	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 100, 5000, 5000, 5.0f, 12);
 	
 	public ToolMultiTool() {
 		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT));
+		setMaxStackSize(1);
 		setUnlocalizedName("tool_multitool");
 		setRegistryName("tool_multitool");
 		setCreativeTab(ItemInit.usefulDNSCreateTab);
@@ -34,6 +36,11 @@ public class ToolMultiTool extends ItemTool implements IHasModel {
 	public void registerModels() {
 		UsefulDNS.proxy.registerItemRenderer(this, 0, "inventory");
 	}
+	
+	public float getStrVsBlock(ItemStack stack, IBlockState state) {
+		return 50f;
+	}
+	
 	
 	
 	@Override
