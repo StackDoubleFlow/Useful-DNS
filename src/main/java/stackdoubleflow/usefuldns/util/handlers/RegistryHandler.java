@@ -17,7 +17,9 @@ import net.minecraftforge.oredict.OreDictionary;
 import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.BlockInit;
 import stackdoubleflow.usefuldns.init.ItemInit;
+import stackdoubleflow.usefuldns.init.MachineInit;
 import stackdoubleflow.usefuldns.model.MeshDefinitionFix;
+import stackdoubleflow.usefuldns.objects.machine.TileEntityRFLiquifier;
 import stackdoubleflow.usefuldns.objects.tileentities.TileEntityMovingLightSource;
 import stackdoubleflow.usefuldns.util.IHasModel;
 
@@ -31,6 +33,7 @@ public class RegistryHandler {
 		event.getRegistry().register(ItemInit.ORE_FOOLS_GOLD);
 		event.getRegistry().register(ItemInit.ORE_FOOLS_IRON);
 		event.getRegistry().register(ItemInit.LIQUID_RF);
+		event.getRegistry().register(ItemInit.BLOCKRFLIQUIFIER);
 		OreDictionary.registerOre("ingotSteel", ItemInit.INGOT_STEEL);
 		OreDictionary.registerOre("rodSteel", ItemInit.STEEL_ROD);
 		OreDictionary.registerOre("dustSteel", ItemInit.RAW_STEEL);
@@ -39,7 +42,9 @@ public class RegistryHandler {
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
+		event.getRegistry().registerAll(MachineInit.MACHINES.toArray(new Block[0]));
 		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, "tileEntityMovingLightSource");
+		GameRegistry.registerTileEntity(TileEntityRFLiquifier.class, "tileEntityRFLiquifier");
 	}
 	
 	
@@ -60,6 +65,7 @@ public class RegistryHandler {
 				registerFluidModel((IFluidBlock) block);
 			}
 		}
+		((IHasModel)MachineInit.RFLIQUIFIER).registerModels();
 		
 	}
 	

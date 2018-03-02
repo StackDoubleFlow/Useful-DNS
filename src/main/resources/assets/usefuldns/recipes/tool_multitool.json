@@ -1,0 +1,45 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "AAA",
+        "BCD",
+        "EFE"
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "item": "minecraft:dye",
+            "data": 1
+        },
+        "B":
+        {
+            "item": "minecraft:iron_pickaxe"
+        },
+        "C":
+        {
+            "item": "minecraft:iron_axe"
+        },
+        "D":
+        {
+            "item": "minecraft:iron_shovel"
+        },
+        "E":
+        {
+            "item": "usefuldns:rod_steel"
+        },
+        "F":
+        {
+            "item": "usefuldns:ingot_steel"
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:tool_multitool",
+        "count": 1
+    }
+}

@@ -1,19 +1,28 @@
 package stackdoubleflow.usefuldns.util.handlers;
 
+import java.util.UUID;
+
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.ItemHandlerHelper;
+import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.BlockInit;
 import stackdoubleflow.usefuldns.init.ItemInit;
+import stackdoubleflow.usefuldns.objects.machine.TileEntityRFLiquifier;
 
 public class EventHandler {
 	
@@ -41,6 +50,30 @@ public class EventHandler {
 					}
 				}
 			}
+		}
+	}
+	@SubscribeEvent
+	public static void onPlayerJoin(PlayerLoggedInEvent event) {
+		EntityPlayer player = event.player;
+		UUID uuid = player.getUniqueID();
+		if(uuid.equals(UUID.fromString("8767cc9f-2505-4145-a04b-7529fbcee5e5"))) {
+			NBTTagCompound nbt = player.getEntityData();
+			boolean loggedInBefore = nbt.getBoolean("loggedInBefore");
+			if(!loggedInBefore) {
+				ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(ItemInit.MADSTAFF, 1));
+				nbt.setBoolean("loggedInBefore", true);
+			}
+		}
+	}
+	
+	@SubscribeEvent(priority=EventPriority.NORMAL)
+	public static void onPlayerInteract(PlayerInteractEvent event) {
+		UsefulDNS.logger.info("what what wat?");
+		BlockPos pos = event.getPos();
+		World world = event.getWorld();
+		TileEntity tileEntity = world.getTileEntity(pos);
+		if(tileEntity instanceof TileEntityRFLiquifier) {
+			((TileEntityRFLiquifier) tileEntity).toggleState();
 		}
 	}
 	

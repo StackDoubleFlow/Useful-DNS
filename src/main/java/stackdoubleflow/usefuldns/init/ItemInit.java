@@ -11,6 +11,8 @@ import stackdoubleflow.usefuldns.objects.items.Flashlight;
 import stackdoubleflow.usefuldns.objects.items.ItemBase;
 import stackdoubleflow.usefuldns.objects.items.PortableCobbleGen;
 import stackdoubleflow.usefuldns.objects.items.foods.Mudpie;
+import stackdoubleflow.usefuldns.objects.items.foods.PeopleBurg;
+import stackdoubleflow.usefuldns.objects.items.tools.Madstaff;
 import stackdoubleflow.usefuldns.objects.items.tools.ToolMultiTool;
 
 public class ItemInit {
@@ -32,6 +34,9 @@ public class ItemInit {
 	public static final Item INGOT_STEEL = new ItemBase("ingot_steel");
 	public static final Item TOOL_MULTITOOL = new ToolMultiTool();
 	public static final Item FLASHLIGHT = new Flashlight();
+	public static final Item MADSTAFF = new Madstaff();
+	public static final Item GROUND_FLESH = new ItemBase("groundflesh");
+	public static final Item PEOPLEBURG = new PeopleBurg();
 	
 	public static final Item DOLLAR1 = new ItemBase("dollar1");
 	public static final Item DOLLAR10 = new ItemBase("dollar10");
@@ -48,9 +53,11 @@ public class ItemInit {
 	public static final Item MONEYBAG4 = new ItemBase("moneybag4");
 	public static final Item MONEYBAG5 = new ItemBase("moneybag5");
 	
+	
 	public static final Item PORTCOBBLEGEN = new PortableCobbleGen();
 	
 	public static final Item MOVINGLIGHTSOURCE = new ItemBlock(BlockInit.MOVING_LIGHT_SOURCE).setRegistryName(BlockInit.MOVING_LIGHT_SOURCE.getRegistryName());
+	public static final Item BLOCKRFLIQUIFIER = new ItemBlock(MachineInit.RFLIQUIFIER).setRegistryName(MachineInit.RFLIQUIFIER.getRegistryName());
 	public static final Item ORE_FOOLS_GOLD = new ItemBlock(BlockInit.ORE_FOOLS_GOLD).setRegistryName("ore_fools_gold");
 	public static final Item ORE_FOOLS_IRON = new ItemBlock(BlockInit.ORE_FOOLS_IRON).setRegistryName("ore_fools_iron");
 	public static final Item LIQUID_RF = new ItemBlock(BlockInit.BLOCK_LIQUID_RF).setRegistryName("liquidrf");

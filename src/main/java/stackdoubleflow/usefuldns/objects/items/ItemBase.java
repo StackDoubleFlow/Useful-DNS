@@ -1,5 +1,7 @@
 package stackdoubleflow.usefuldns.objects.items;
 
+import com.google.common.collect.Multimap;
+
 import net.minecraft.item.Item;
 import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.ItemInit;
@@ -28,6 +30,5 @@ public class ItemBase extends Item implements IHasModel {
 		
 		ItemInit.ITEMS.add(this);
 	}
-	
 	
 }

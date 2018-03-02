@@ -21,9 +21,15 @@ item.moneybag5.name=Quintuple Money Bag
 item.flashlight.name=Flashlight
 item.portcobblegen.name=Portable Cobble Generator
 item.raw_iron.name=Raw Iron
+item.madstaff.name=Madcock's Staff
+item.groundflesh.name=Ground Flesh
+item.peopleburg.name=People Burger
+
 
 tile.movinglightsource.name=What a mystery this is.
 tile.ore_fools_gold.name=Gold Ore
 tile.ore_fools_iron.name=Iron Ore
 tile.usefuldns:liquidrf.name=Liquid RF
+tile.blockrfliquifier.name=RF Liquifier
+
 fluid.liquidrf=Liquid RF

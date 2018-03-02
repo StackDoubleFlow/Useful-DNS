@@ -3,6 +3,7 @@ package stackdoubleflow.usefuldns.objects.items.tools;
 import java.util.Set;
 
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.BlockDirt;
@@ -22,6 +23,8 @@ import stackdoubleflow.usefuldns.util.Reference;
 public class ToolMultiTool extends ItemTool implements IHasModel {
 	
 	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 100, 5000, 5000, 5.0f, 12);
+	public static final ToolMaterial madMat = EnumHelper.addToolMaterial(Reference.MODID + ":mad", 100, 5000, 5000, 1234567890.0f, 12);
+	
 	
 	public ToolMultiTool() {
 		super(dnsMaterial, Sets.newHashSet(Blocks.DIRT));
@@ -56,6 +59,7 @@ public class ToolMultiTool extends ItemTool implements IHasModel {
 	public int getMaxDamage() {
 		return 5000;
 	}
+	
 	
 
 }

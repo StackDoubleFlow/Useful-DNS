@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "  B",
+        " B ",
+        "A  "
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "item": "usefuldns:rod_steel"
+        },
+        "B":
+        {
+            "item": "minecraft:cooked_chicken"
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:madstaff",
+        "count": 1
+    }
+}
