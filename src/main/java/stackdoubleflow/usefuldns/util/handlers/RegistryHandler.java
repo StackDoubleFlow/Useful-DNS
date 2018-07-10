@@ -13,6 +13,8 @@ import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.BlockInit;
@@ -34,6 +36,9 @@ public class RegistryHandler {
 		event.getRegistry().register(ItemInit.ORE_FOOLS_IRON);
 		event.getRegistry().register(ItemInit.LIQUID_RF);
 		event.getRegistry().register(ItemInit.BLOCKRFLIQUIFIER);
+		event.getRegistry().register(ItemInit.COMPRESSED_COAL);
+		event.getRegistry().register(ItemInit.DECANYSODIUM);
+		event.getRegistry().register(ItemInit.MADS_PORTAL);
 		OreDictionary.registerOre("ingotSteel", ItemInit.INGOT_STEEL);
 		OreDictionary.registerOre("rodSteel", ItemInit.STEEL_ROD);
 		OreDictionary.registerOre("dustSteel", ItemInit.RAW_STEEL);
@@ -69,6 +74,7 @@ public class RegistryHandler {
 		
 	}
 	
+	@SideOnly(Side.CLIENT)
 	private static void registerFluidModel(IFluidBlock fluidBlock) {
 		final Item item = Item.getItemFromBlock((Block) fluidBlock);
 		assert item != null;

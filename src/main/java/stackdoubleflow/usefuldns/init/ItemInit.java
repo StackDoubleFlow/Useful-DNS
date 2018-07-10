@@ -61,4 +61,7 @@ public class ItemInit {
 	public static final Item ORE_FOOLS_GOLD = new ItemBlock(BlockInit.ORE_FOOLS_GOLD).setRegistryName("ore_fools_gold");
 	public static final Item ORE_FOOLS_IRON = new ItemBlock(BlockInit.ORE_FOOLS_IRON).setRegistryName("ore_fools_iron");
 	public static final Item LIQUID_RF = new ItemBlock(BlockInit.BLOCK_LIQUID_RF).setRegistryName("liquidrf");
+	public static final Item COMPRESSED_COAL = new ItemBlock(BlockInit.COMPRESSED_COAL).setRegistryName("compressed_coal");
+	public static final Item DECANYSODIUM = new ItemBlock(BlockInit.DECANYSODIUM).setRegistryName("decanysodium");
+	public static final Item MADS_PORTAL = new ItemBlock(BlockInit.MADS_PORTAL).setRegistryName("mads_portal");
 }

@@ -12,12 +12,10 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import stackdoubleflow.usefuldns.init.FluidInit;
 import stackdoubleflow.usefuldns.init.Recipes;
 import stackdoubleflow.usefuldns.proxy.CommonProxy;
 import stackdoubleflow.usefuldns.util.Reference;
-import stackdoubleflow.usefuldns.world.DNSWorldGen;
 
 @Mod(modid=Reference.MODID, name=Reference.NAME, version=Reference.VERSION)
 public class UsefulDNS {
@@ -29,13 +27,15 @@ public class UsefulDNS {
 	@SidedProxy(clientSide=Reference.CLIENT, serverSide=Reference.COMMON)
 	public static CommonProxy proxy;
 	
+	public static int madsDimId = 10122;
+	public static int stacksDimId = 10121;
+	
 	static {
 		FluidRegistry.enableUniversalBucket();
 	}
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
-		GameRegistry.registerWorldGenerator(new DNSWorldGen(), 1);
 		FluidRegistry.registerFluid(FluidInit.LIQUID_RF);
 		FluidRegistry.addBucketForFluid(FluidInit.LIQUID_RF);
 		logger = LogManager.getLogger("UsefulDNS");

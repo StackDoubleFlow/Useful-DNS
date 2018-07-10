@@ -23,7 +23,7 @@ import stackdoubleflow.usefuldns.util.Reference;
 public class ToolMultiTool extends ItemTool implements IHasModel {
 	
 	public static final ToolMaterial dnsMaterial = EnumHelper.addToolMaterial(Reference.MODID + ":dns", 100, 5000, 5000, 5.0f, 12);
-	public static final ToolMaterial madMat = EnumHelper.addToolMaterial(Reference.MODID + ":mad", 100, 5000, 5000, 1234567890.0f, 12);
+	public static final ToolMaterial madMat = EnumHelper.addToolMaterial(Reference.MODID + ":mad", 100, 5000, 5000, 100.0f, 12);
 	
 	
 	public ToolMultiTool() {

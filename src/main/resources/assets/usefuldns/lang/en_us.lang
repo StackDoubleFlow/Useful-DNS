@@ -31,5 +31,6 @@ tile.ore_fools_gold.name=Gold Ore
 tile.ore_fools_iron.name=Iron Ore
 tile.usefuldns:liquidrf.name=Liquid RF
 tile.blockrfliquifier.name=RF Liquifier
+tile.compressed_coal.name=Compressed Coal
 
 fluid.liquidrf=Liquid RF

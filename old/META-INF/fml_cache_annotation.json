@@ -1,0 +1,81 @@
+{
+  "mod/mcreator/mcreator_liquidRF$2": {
+    "name": "mod/mcreator/mcreator_liquidRF$2",
+    "interfaces": [
+      "net/minecraft/client/renderer/ItemMeshDefinition"
+    ]
+  },
+  "mod/mcreator/mcreator_madsworld$ChunkProviderModded": {
+    "name": "mod/mcreator/mcreator_madsworld$ChunkProviderModded",
+    "interfaces": [
+      "net/minecraft/world/gen/IChunkGenerator"
+    ]
+  },
+  "mod/mcreator/usefuldns": {
+    "name": "mod/mcreator/usefuldns",
+    "interfaces": [
+      "net/minecraftforge/fml/common/IFuelHandler",
+      "net/minecraftforge/fml/common/IWorldGenerator"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod;",
+        "target": "mod/mcreator/usefuldns",
+        "values": {
+          "acceptedMinecraftVersions": {
+            "value": "[1.12.2]"
+          },
+          "modid": {
+            "value": "usefuldns"
+          },
+          "version": {
+            "value": "5.2.2"
+          }
+        }
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/fml/common/SidedProxy;",
+        "target": "proxy",
+        "values": {
+          "clientSide": {
+            "value": "mod.mcreator.ClientProxyusefuldns"
+          },
+          "serverSide": {
+            "value": "mod.mcreator.CommonProxyusefuldns"
+          }
+        }
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$Instance;",
+        "target": "instance",
+        "value": {
+          "value": "usefuldns"
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "load(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "serverLoad(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V"
+      }
+    ]
+  },
+  "mod/mcreator/usefuldns$GuiHandler": {
+    "name": "mod/mcreator/usefuldns$GuiHandler",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/IGuiHandler"
+    ]
+  }
+}

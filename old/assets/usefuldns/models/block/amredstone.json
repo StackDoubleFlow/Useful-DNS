@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "blocks/am_redstone","particle": "blocks/am_redstone"
+    }
+}
