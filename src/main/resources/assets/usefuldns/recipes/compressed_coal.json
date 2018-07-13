@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "CCC",
+        "CCC",
+        "CCC"
+    ],
+    
+    "key":
+    {
+        "C":
+        {
+            "item": "minecraft:coal_block"
+        }
+    },
+    
+    "result":
+    {
+        "item": "usefuldns:compressed_coal",
+        "count": 1
+    }
+}

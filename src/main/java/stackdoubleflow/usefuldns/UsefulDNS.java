@@ -16,6 +16,7 @@ import stackdoubleflow.usefuldns.init.FluidInit;
 import stackdoubleflow.usefuldns.init.Recipes;
 import stackdoubleflow.usefuldns.proxy.CommonProxy;
 import stackdoubleflow.usefuldns.util.Reference;
+import stackdoubleflow.usefuldns.world.ModDimensions;
 
 @Mod(modid=Reference.MODID, name=Reference.NAME, version=Reference.VERSION)
 public class UsefulDNS {
@@ -38,6 +39,7 @@ public class UsefulDNS {
 	public static void preInit(FMLPreInitializationEvent event) {
 		FluidRegistry.registerFluid(FluidInit.LIQUID_RF);
 		FluidRegistry.addBucketForFluid(FluidInit.LIQUID_RF);
+		ModDimensions.init();
 		logger = LogManager.getLogger("UsefulDNS");
 		logger.info("UsefulDNS logger initialized");
 	}

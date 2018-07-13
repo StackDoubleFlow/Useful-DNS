@@ -39,6 +39,7 @@ public class RegistryHandler {
 		event.getRegistry().register(ItemInit.COMPRESSED_COAL);
 		event.getRegistry().register(ItemInit.DECANYSODIUM);
 		event.getRegistry().register(ItemInit.MADS_PORTAL);
+		event.getRegistry().register(ItemInit.MADS_FIRE);
 		OreDictionary.registerOre("ingotSteel", ItemInit.INGOT_STEEL);
 		OreDictionary.registerOre("rodSteel", ItemInit.STEEL_ROD);
 		OreDictionary.registerOre("dustSteel", ItemInit.RAW_STEEL);

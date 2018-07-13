@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "usefuldns:blocks/portal",
-        "portal": "usefuldns:blocks/portal"
+        "particle": "usefuldns:blocks/mads_portal",
+        "portal": "usefuldns:blocks/mads_portal"
     },
     "elements": [
         {   "from": [ 6, 0, 0 ],

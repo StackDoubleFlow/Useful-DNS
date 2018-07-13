@@ -1,0 +1,7 @@
+{
+    "parent": "usefuldns:block/fire_up",
+    "textures": {
+        "particle": "usefuldns:blocks/fire_layer_0",
+        "fire": "usefuldns:blocks/fire_layer_0"
+    }
+}

@@ -64,4 +64,5 @@ public class ItemInit {
 	public static final Item COMPRESSED_COAL = new ItemBlock(BlockInit.COMPRESSED_COAL).setRegistryName("compressed_coal");
 	public static final Item DECANYSODIUM = new ItemBlock(BlockInit.DECANYSODIUM).setRegistryName("decanysodium");
 	public static final Item MADS_PORTAL = new ItemBlock(BlockInit.MADS_PORTAL).setRegistryName("mads_portal");
+	public static final Item MADS_FIRE = new ItemBlock(BlockInit.MADS_FIRE).setRegistryName("mads_fire");
 }

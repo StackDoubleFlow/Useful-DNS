@@ -1,5 +1,7 @@
 package stackdoubleflow.usefuldns.objects.blocks;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -19,11 +21,13 @@ import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
@@ -31,13 +35,21 @@ import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.Teleporter;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import stackdoubleflow.usefuldns.UsefulDNS;
 import stackdoubleflow.usefuldns.init.BlockInit;
 import stackdoubleflow.usefuldns.util.IHasModel;
+import stackdoubleflow.usefuldns.world.MadsTeleporter;
+import stackdoubleflow.usefuldns.world.MadsTileEnityDim;
+import stackdoubleflow.usefuldns.world.ModDimensions;
 
 public class MadsPortal extends BlockPortal implements IHasModel {
 
@@ -50,6 +62,7 @@ public class MadsPortal extends BlockPortal implements IHasModel {
 	public MadsPortal()
     {
         super();
+        BlockInit.BLOCKS.add(this);
 		setUnlocalizedName("mads_portal");
 		setRegistryName("mads_portal");
     }
@@ -206,10 +219,139 @@ public class MadsPortal extends BlockPortal implements IHasModel {
 	/**
 	 * Called When an Entity Collided with the Block
 	 */
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-		if (!entityIn.isRiding() && !entityIn.isBeingRidden() && entityIn.isNonBoss()) {
-			entityIn.setPortal(pos);
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entity) {
+		if(state == this.getDefaultState() && !entity.isRiding() && !entity.isBeingRidden()) {
+			attempSendPlayer(entity, false, pos);
 		}
+	}
+	
+	public static void attempSendPlayer(Entity entity, boolean forcedEntry, BlockPos pos) {
+		if(entity.isDead || entity.world.isRemote) {
+			return;
+		}
+		if(!forcedEntry && entity.timeUntilPortal > 0) {
+			return;
+		}
+		
+		entity.timeUntilPortal = 10;
+		
+		int destination = entity.dimension != UsefulDNS.madsDimId ? UsefulDNS.madsDimId : 0;
+		setPortal(entity, pos);
+		tele(entity);
+	}
+	
+	private static void setPortal(Entity entity, BlockPos pos) {
+        try {
+        	BlockPos lastPortalPos = new BlockPos(pos);
+    		ReflectionHelper.findField(Entity.class, "field_181016_an", "lastPortalPos").set(entity, new BlockPos(pos));
+            BlockPattern.PatternHelper blockpattern$patternhelper = Blocks.PORTAL.createPatternHelper(entity.world, lastPortalPos);
+            double d0 = blockpattern$patternhelper.getForwards().getAxis() == EnumFacing.Axis.X ? (double)blockpattern$patternhelper.getFrontTopLeft().getZ() : (double)blockpattern$patternhelper.getFrontTopLeft().getX();
+            double d1 = blockpattern$patternhelper.getForwards().getAxis() == EnumFacing.Axis.X ? entity.posZ : entity.posX;
+            d1 = Math.abs(MathHelper.pct(d1 - (double)(blockpattern$patternhelper.getForwards().rotateY().getAxisDirection() == EnumFacing.AxisDirection.NEGATIVE ? 1 : 0), d0, d0 - (double)blockpattern$patternhelper.getWidth()));
+            double d2 = MathHelper.pct(entity.posY - 1.0D, (double)blockpattern$patternhelper.getFrontTopLeft().getY(), (double)(blockpattern$patternhelper.getFrontTopLeft().getY() - blockpattern$patternhelper.getHeight()));
+            ReflectionHelper.findField(Entity.class, "field_181017_ao", "lastPortalVec").set(entity, new Vec3d(d1, d2, 0.0D));
+			ReflectionHelper.findField(Entity.class, "field_181018_ap", "teleportDirection").set(entity, blockpattern$patternhelper.getForwards());
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void tele(Entity sendEntity)
+	{
+		
+		
+		int dimensionIn = UsefulDNS.madsDimId;
+		if (!sendEntity.world.isRemote && !sendEntity.isDead)
+        {
+            if (!net.minecraftforge.common.ForgeHooks.onTravelToDimension(sendEntity, dimensionIn)) return;
+            sendEntity.world.profiler.startSection("changeDimension");
+            MinecraftServer minecraftserver = sendEntity.getServer();
+            int i = sendEntity.dimension;
+            WorldServer worldserver = minecraftserver.getWorld(i);
+            WorldServer worldserver1 = minecraftserver.getWorld(dimensionIn);
+            sendEntity.dimension = dimensionIn;
+
+            if (i == 1 && dimensionIn == 1)
+            {
+                worldserver1 = minecraftserver.getWorld(0);
+                sendEntity.dimension = 0;
+            }
+
+            sendEntity.world.removeEntity(sendEntity);
+            sendEntity.isDead = false;
+            sendEntity.world.profiler.startSection("reposition");
+            BlockPos blockpos;
+
+            if (dimensionIn == 1)
+            {
+                blockpos = worldserver1.getSpawnCoordinate();
+            }
+            else
+            {
+                double d0 = sendEntity.posX;
+                double d1 = sendEntity.posZ;
+                double d2 = 8.0D;
+
+                if (dimensionIn == UsefulDNS.madsDimId)
+                {
+                    d0 = MathHelper.clamp(d0 / 8.0D, worldserver1.getWorldBorder().minX() + 16.0D, worldserver1.getWorldBorder().maxX() - 16.0D);
+                    d1 = MathHelper.clamp(d1 / 8.0D, worldserver1.getWorldBorder().minZ() + 16.0D, worldserver1.getWorldBorder().maxZ() - 16.0D);
+                }
+                else if (dimensionIn == 0)
+                {
+                    d0 = MathHelper.clamp(d0 * 8.0D, worldserver1.getWorldBorder().minX() + 16.0D, worldserver1.getWorldBorder().maxX() - 16.0D);
+                    d1 = MathHelper.clamp(d1 * 8.0D, worldserver1.getWorldBorder().minZ() + 16.0D, worldserver1.getWorldBorder().maxZ() - 16.0D);
+                }
+
+                d0 = (double)MathHelper.clamp((int)d0, -29999872, 29999872);
+                d1 = (double)MathHelper.clamp((int)d1, -29999872, 29999872);
+                float f = sendEntity.rotationYaw;
+                sendEntity.setLocationAndAngles(d0, sendEntity.posY, d1, 90.0F, 0.0F);
+                Teleporter teleporter = new MadsTeleporter(worldserver1);
+                teleporter.placeInExistingPortal(sendEntity, f);
+                blockpos = new BlockPos(sendEntity);
+            }
+
+            worldserver.updateEntityWithOptionalForce(sendEntity, false);
+            sendEntity.world.profiler.endStartSection("reloading");
+            Entity entity = EntityList.newEntity(sendEntity.getClass(), worldserver1);
+
+            if (entity != null)
+            {
+                
+                Method copyDataFromOld = ReflectionHelper.findMethod(entity.getClass(), "copyDataFromOld", "func_180432_n", Entity.class);
+                try {
+					copyDataFromOld.invoke(entity, sendEntity);
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+					e.printStackTrace();
+				}
+
+                if (i == 1 && dimensionIn == 1)
+                {
+                    BlockPos blockpos1 = worldserver1.getTopSolidOrLiquidBlock(worldserver1.getSpawnPoint());
+                    entity.moveToBlockPosAndAngles(blockpos1, entity.rotationYaw, entity.rotationPitch);
+                }
+                else
+                {
+                    entity.moveToBlockPosAndAngles(blockpos, entity.rotationYaw, entity.rotationPitch);
+                }
+
+                boolean flag = entity.forceSpawn;
+                entity.forceSpawn = true;
+                worldserver1.spawnEntity(entity);
+                entity.forceSpawn = flag;
+                worldserver1.updateEntityWithOptionalForce(entity, false);
+            }
+
+            sendEntity.isDead = true;
+            sendEntity.world.profiler.endSection();
+            worldserver.resetUpdateEntityTick();
+            worldserver1.resetUpdateEntityTick();
+            sendEntity.world.profiler.endSection();
+        }
+		
 	}
 
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
